@@ -90,3 +90,6 @@ target/
 
 # My environment
 myenv
+
+# Models
+vectorizer.pkl
