@@ -26,3 +26,8 @@ jobs:
           DAGSHUB_PJT : ${{ secrets.DAGSHUB_PJT }}
         run: |
           dvc repro
+      - name: Run model tests
+        env:
+          DAGSHUB_PJT: ${{ secrets.DAGSHUB_PJT }}
+        run: |
+          python -m unittest tests/test_model.py
