@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = /Users/avi/Desktop/Temp
+    url = s3://new-mlops-bucket
