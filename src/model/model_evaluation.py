@@ -12,8 +12,22 @@ import dagshub
 import os
 
 # Set up DagsHub credentials for MLflow tracking
-mlflow.set_tracking_uri('https://dagshub.com/avi350751/mlops-new-mini-project.mlflow')
-dagshub.init(repo_owner='avi350751', repo_name='mlops-new-mini-project', mlflow=True)
+#mlflow.set_tracking_uri('https://dagshub.com/avi350751/mlops-new-mini-project.mlflow')
+#dagshub.init(repo_owner='avi350751', repo_name='mlops-new-mini-project', mlflow=True)
+
+dagshub_token = os.getenv("DAGSHUB_PJT")
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_PJT environment variable is not set")
+
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+
+dagshub_url = "https://dagshub.com"
+repo_owner = "avi350751"
+repo_name = "mlops-new-mini-project"
+
+# Set up MLflow tracking URI
+mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 
 # logging configuration
 logger = logging.getLogger('model_evaluation')
