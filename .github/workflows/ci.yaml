@@ -50,8 +50,8 @@ jobs:
       - name: Build Docker Image
         if: success()
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/emotion-detection1:latest .
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/emotion-detection2:latest .
       - name: Push Docker Image to Docker Hub
         if: success()
         run: |
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/emotion-detection1:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/emotion-detection2:latest
